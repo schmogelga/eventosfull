@@ -1,0 +1,10 @@
+spotless {
+  java {
+    googleJavaFormat('1.21.0')
+    indentWithTabs(2)
+    indentWithSpaces(4)
+    removeUnusedImports()
+    importOrder('java|javax', 'org.spring|org.springframework', '', 'br.jus.pdpj.jusprec')
+    formatAnnotations()
+  }
+}

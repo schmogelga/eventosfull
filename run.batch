@@ -1,0 +1,1 @@
+docker run --network=eventosfull-rede --name eventosfull-app-container -p 8080:8080 -e HOST=meu_host -e PORT=5432 -e USER=admin -e PASSWORD=admin docker.io/library/eventosfull:latest

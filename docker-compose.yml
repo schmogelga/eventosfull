@@ -1,0 +1,40 @@
+services:
+  postgres_prod:
+    image: postgres
+    container_name: eventosfull-postgres-prod
+    volumes:
+      - postgres_prod:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: eventosfull-prod
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+    ports:
+      - '5433:5432'
+    networks:
+      - eventosfull-rede
+
+  postgres_homolog:
+    image: postgres
+    container_name: eventosfull-postgres-homolog
+    volumes:
+      - postgres_homolog:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: eventosfull-homolog
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+    ports:
+      - '5434:5432'
+    networks:
+      - eventosfull-rede
+
+networks:
+  eventosfull-rede:
+    name: eventosfull-rede
+    external: true
+    driver: bridge
+
+volumes:
+  postgres_prod:
+    driver: local
+  postgres_homolog:
+    driver: local
