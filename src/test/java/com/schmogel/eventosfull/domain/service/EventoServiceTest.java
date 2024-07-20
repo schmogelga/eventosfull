@@ -29,5 +29,6 @@ class EventoServiceTest {
 
     Assertions.assertNotNull(result);
     Assertions.assertEquals(eventoMock, result);
+
   }
 }
