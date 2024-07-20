@@ -17,5 +17,6 @@ public class EventoAdapter {
                                 .map(inscricoes -> inscricoes.stream().map(InscricaoAdapter::entityToDTO).toList())
                                 .orElse(null))
                 .build();
+
     }
 }
