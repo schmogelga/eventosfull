@@ -1,7 +1,7 @@
 #!/bin/bash
 
 REPO_DIR="./eventosfull"
-BRANCH="develop"
+BRANCH="master"
 LAST_COMMIT_FILE="./ultimo-commit.txt"
 LOG_DIR="../logs/$(date +%Y-%m-%d)"
 LOG_FILE_PREFIX="RUNNING-monitor-repo-$(date +%H-%M-%S)"
@@ -72,6 +72,7 @@ if [ "$LATEST_COMMIT" != "$LAST_COMMIT" ] || true; then
       -e USER=admin \
       -e PASSWORD=senha \
       -e SPRING_DATASOURCE_URL=jdbc:postgresql://eventosfull-postgres-homolog:5432/eventosfull-homolog \
+      -e AMBIENTE=homolog \
       schmogelga/eventosfull:homolog >> $LOG_FILE 2>&1
 
     if [ $? -ne 0 ]; then
