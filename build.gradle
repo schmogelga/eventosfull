@@ -88,3 +88,8 @@ tasks.named('jar') {
 tasks.named('test') {
     useJUnitPlatform()
 }
+
+bootJar {
+  archiveFileName.set("eventosfull-app.jar")
+}
+
