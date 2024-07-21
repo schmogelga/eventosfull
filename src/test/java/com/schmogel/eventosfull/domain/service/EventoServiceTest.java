@@ -33,9 +33,9 @@ class EventoServiceTest {
 
   }
 
-//  @Test
-//  void deveRetornarNotFound(){
-//    Mockito.when(eventoRepository.findById(Mockito.any(UUID.class))).thenReturn(Optional.empty());
-//    Assertions.assertThrows(NotFoundException.class, () -> eventoService.recuperarEvento(UUID.randomUUID()));
-//  }
+  @Test
+  void deveRetornarNotFound(){
+    Mockito.when(eventoRepository.findById(Mockito.any(UUID.class))).thenReturn(Optional.empty());
+    Assertions.assertThrows(NotFoundException.class, () -> eventoService.recuperarEvento(UUID.randomUUID()));
+  }
 }
