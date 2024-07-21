@@ -8,7 +8,6 @@ plugins {
 }
 
 group = 'com.schmogel'
-mainClass = 'EventosfullApplication'
 version = '1.2.0'
 
 java {
@@ -81,7 +80,7 @@ tasks.named('jar') {
   archiveFileName.set("eventosfull-app.jar")
   manifest {
     attributes(
-      'Main-Class': 'com.schmogel.EventosfullApplication'
+      'Main-Class': 'com.schmogel.eventosfull.EventosfullApplication'
     )
   }
 }
