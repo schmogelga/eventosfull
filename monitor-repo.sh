@@ -38,7 +38,7 @@ if [ "$LATEST_COMMIT" != "$LAST_COMMIT" ] || true; then
     echo $LATEST_COMMIT > $LAST_COMMIT_FILE
 
     echo "PIPELIEN TASK >>> Executando build: $(date '+%Y-%m-%d %H:%M:%S')" >> $LOG_FILE
-    ./gradlew clean test >> $LOG_FILE 2>&1
+    ./gradlew clean >> $LOG_FILE 2>&1
     ./gradlew build >> $LOG_FILE 2>&1
     if [ $? -ne 0 ]; then
         update_log_prefix "FAILED"

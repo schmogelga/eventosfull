@@ -4,7 +4,7 @@ RUN apt-get update && apt-get install -y curl
 
 WORKDIR /app
 
-COPY build/libs/eventosfull-1.1.0-SNAPSHOT.jar /app/eventosfull.jar
+COPY build/libs/eventosfull.jar /app/eventosfull.jar
 
 EXPOSE 8080
 
