@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BRANCH="master"
+BRANCH="main"
 LAST_COMMIT_FILE="./ultimo-commit.txt"
 LOG_DIR="../logs/$(date +%Y-%m-%d)"
 LOG_FILE_PREFIX="RUNNING-monitor-repo-$(date +%H-%M-%S)"
