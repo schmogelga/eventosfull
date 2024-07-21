@@ -29,7 +29,7 @@ public class EventoService {
 
     public Evento criarEvento(EventoRequest eventoRequest) {
         Evento evento =
-                new Evento(null, eventoRequest.nome(), eventoRequest.data(), new ArrayList<Inscricao>());
+                new Evento(null, eventoRequest.nome(), eventoRequest.data(), new ArrayList<Inscricao>(), false);
 
         return eventoRepository.save(evento);
     }
