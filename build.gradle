@@ -81,18 +81,15 @@ processResources.dependsOn generateVersionProperties
 tasks.named('test') {
     useJUnitPlatform()
 }
+
 tasks.register('renameJar') {
   dependsOn 'jar'
   doLast {
-    def oldJar = file("${layout.buildDirectory.get()}/libs/eventosfull-${version}")
+    def oldJar = file("${layout.buildDirectory.get()}/libs/eventosfull-${version}.jar")
     def newJar = file("${layout.buildDirectory.get()}/libs/${jarName}")
 
     if (oldJar.exists()) {
       oldJar.renameTo(newJar)
     }
   }
-}
-
-tasks.named('build') {
-  dependsOn 'renameJar'
 }
