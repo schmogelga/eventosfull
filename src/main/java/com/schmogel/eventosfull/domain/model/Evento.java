@@ -24,6 +24,4 @@ public class Evento {
 
     @OneToMany(mappedBy = "evento", fetch = FetchType.EAGER)
     private List<Inscricao> inscricoes;
-
-    private Boolean cancelado;
 }
