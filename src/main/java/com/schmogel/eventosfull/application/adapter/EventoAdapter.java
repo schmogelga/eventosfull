@@ -4,7 +4,10 @@ import java.util.Optional;
 
 import com.schmogel.eventosfull.application.dto.EventoResponse;
 import com.schmogel.eventosfull.domain.model.Evento;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class EventoAdapter {
 
     public static EventoResponse entityToDto(Evento evento) {

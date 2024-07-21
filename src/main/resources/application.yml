@@ -13,7 +13,7 @@ info:
   app:
     name: EventosFull
     description: Projeto final da disciplina de Arquitetura de Software
-    version: ${project.version}
+    version: ${version}
 management:
   endpoints:
     # enabled-by-default: false
