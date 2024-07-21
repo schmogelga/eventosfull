@@ -76,20 +76,12 @@ tasks.register('generateVersionProperties') {
 
 processResources.dependsOn generateVersionProperties
 
-tasks.named('jar') {
-  archiveFileName.set("eventosfull-app.jar")
-  manifest {
-    attributes(
-      'Main-Class': 'com.schmogel.eventosfull.EventosfullApplication'
-    )
-  }
-}
 
 tasks.named('test') {
     useJUnitPlatform()
 }
 
-bootJar {
+jar {
   archiveFileName.set("eventosfull-app.jar")
 }
 
