@@ -34,7 +34,7 @@ else
 fi
 
 # Operações
-if [ "$LATEST_COMMIT" != "$LAST_COMMIT" ] || true; then
+if [ "$LATEST_COMMIT" != "$LAST_COMMIT" ]; then
 
     echo "==============================" >> $LOG_FILE
     echo "Início da operação: $(date '+%Y-%m-%d %H:%M:%S')" >> $LOG_FILE
