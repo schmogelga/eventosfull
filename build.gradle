@@ -26,7 +26,7 @@ repositories {
 
 ext {
     set('springCloudVersion', "2023.0.0")
-    jarName = 'eventosfull-app.jar'
+    jar.archiveFileName.set('eventosfull-app.jar')
 }
 
 dependencies {
@@ -80,19 +80,4 @@ processResources.dependsOn generateVersionProperties
 
 tasks.named('test') {
     useJUnitPlatform()
-}
-tasks.register('renameJar') {
-  dependsOn 'jar'
-  doLast {
-    def oldJar = file("${layout.buildDirectory.get()}/libs/${jar.archiveFileName.get()}")
-    def newJar = file("${layout.buildDirectory.get()}/libs/${jarName}")
-
-    if (oldJar.exists()) {
-      oldJar.renameTo(newJar)
-    }
-  }
-}
-
-tasks.named('build') {
-  dependsOn 'renameJar'
 }
