@@ -13,6 +13,14 @@ update_log_prefix() {
     LOG_FILE="$LOG_DIR/$1-monitor-repo-$(date +%H-%M-%S).log"
 }
 
+check_error() {
+    if [ $? -ne 0 ]; then
+        update_log_prefix "FAILED"
+        echo "Erro ao executar o build" >> $LOG_FILE
+        exit 1
+    fi
+}
+
 mkdir -p $LOG_DIR
 
 # Verificação
@@ -39,13 +47,13 @@ if [ "$LATEST_COMMIT" != "$LAST_COMMIT" ] || true; then
 
     echo "PIPELIEN TASK >>> Executando build: $(date '+%Y-%m-%d %H:%M:%S')" >> $LOG_FILE
     ./gradlew clean >> $LOG_FILE 2>&1
+    check_error
+
     ./gradlew build >> $LOG_FILE 2>&1
+    check_error
+
     ./gradlew renameJar >> $LOG_FILE 2>&1
-    if [ $? -ne 0 ]; then
-        update_log_prefix "FAILED"
-        echo "Erro ao executar o build" >> $LOG_FILE
-        exit 1
-    fi
+    check_error
 
     echo "PIPELIEN TASK >>> Atualizando docker image: $(date '+%Y-%m-%d %H:%M:%S')" >> $LOG_FILE
     docker build -t schmogelga/eventosfull:homolog . >> $LOG_FILE 2>&1
