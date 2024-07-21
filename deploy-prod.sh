@@ -8,8 +8,8 @@ HEALTH_CHECK_INTERVAL=10
 MAX_HEALTH_CHECK_ATTEMPTS=12
 
 update_log_prefix() {
-    mv "$LOG_FILE" "$LOG_DIR/$1-monitor-repo-$(date +%H-%M-%S).log"
-    LOG_FILE="$LOG_DIR/$1-monitor-repo-$(date +%H-%M-%S).log"
+    mv "$LOG_FILE" "$LOG_DIR/$1-deploy-prod-$(date +%H-%M-%S).log"
+    LOG_FILE="$LOG_DIR/$1-deploy-prod-$(date +%H-%M-%S).log"
 }
 
 mkdir -p $LOG_DIR
@@ -19,7 +19,7 @@ echo "Início da operação: $(date '+%Y-%m-%d %H:%M:%S')" >> $LOG_FILE
 echo "==============================" >> $LOG_FILE
 
 echo "PIPELIEN TASK >>> Buscando docker image atualizada: $(date '+%Y-%m-%d %H:%M:%S')" >> $LOG_FILE
-docker build push schmogelga/eventosfull:prod >> $LOG_FILE 2>&1
+docker push schmogelga/eventosfull:prod >> $LOG_FILE 2>&1
 if [ $? -ne 0 ]; then
     update_log_prefix "FAILED"
     echo "Erro ao buscar a imagem Docker" >> $LOG_FILE
@@ -78,5 +78,8 @@ if [ $attempt -gt $MAX_HEALTH_CHECK_ATTEMPTS ]; then
     docker logs eventosfull-app-prod-container >> $LOG_FILE 2>&1
     exit 1
 fi
+
+update_log_prefix "SUCCESS"
+
 
 
