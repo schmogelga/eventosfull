@@ -1,6 +1,5 @@
 #!/bin/bash
 
-REPO_DIR="./eventosfull"
 BRANCH="master"
 LAST_COMMIT_FILE="./ultimo-commit.txt"
 LOG_DIR="../logs/$(date +%Y-%m-%d)"
@@ -14,7 +13,6 @@ update_log_prefix() {
     LOG_FILE="$LOG_DIR/$1-monitor-repo-$(date +%H-%M-%S).log"
 }
 
-cd $REPO_DIR || { echo "Diretório do repositório não encontrado"; exit 1; }
 mkdir -p $LOG_DIR
 
 # Verificação
