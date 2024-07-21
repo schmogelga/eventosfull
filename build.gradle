@@ -77,7 +77,7 @@ tasks.register('generateVersionProperties') {
 processResources.dependsOn generateVersionProperties
 
 tasks.named('jar') {
-  archiveFileName.set("eventosfull.jar")
+  archiveFileName.set("eventosfull-app.jar")
 }
 
 tasks.named('test') {
