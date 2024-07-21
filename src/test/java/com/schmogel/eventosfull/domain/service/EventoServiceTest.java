@@ -1,5 +1,6 @@
 package com.schmogel.eventosfull.domain.service;
 
+import com.schmogel.eventosfull.application.exception.NotFoundException;
 import com.schmogel.eventosfull.infrastructure.repository.EventoRepository;
 import com.schmogel.eventosfull.mock.EventoMock;
 import org.junit.jupiter.api.Assertions;
@@ -30,5 +31,11 @@ class EventoServiceTest {
     Assertions.assertNotNull(result);
     Assertions.assertEquals(eventoMock, result);
 
+  }
+
+  @Test
+  void deveRetornarNotFound(){
+    Mockito.when(eventoRepository.findById(Mockito.any(UUID.class))).thenReturn(Optional.empty());
+    Assertions.assertThrows(NotFoundException.class, () -> eventoService.recuperarEvento(UUID.randomUUID()));
   }
 }
