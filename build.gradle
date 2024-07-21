@@ -68,7 +68,9 @@ dependencyManagement {
 
 tasks.register('generateVersionProperties') {
   doLast {
-    file("${layout.buildDirectory.get()}/resources/main/version.properties").text = "version=${version}"
+    def versionFile = file("${layout.buildDirectory.get()}/resources/main/version.properties")
+    versionFile.parentFile.mkdirs()
+    versionFile.text = "version=${version}"
   }
 }
 
