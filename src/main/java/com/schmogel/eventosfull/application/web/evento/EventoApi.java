@@ -3,6 +3,7 @@ package com.schmogel.eventosfull.application.web.evento;
 import java.util.List;
 import java.util.UUID;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,6 +25,7 @@ public interface EventoApi {
     EventoResponse recuperarEvento(@PathVariable UUID id);
 
     @Operation(summary = "Cria um evento", description = "Cria um evento", method = "POST")
+    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     EventoResponse criarEvento(@RequestBody EventoRequest eventoRequest);
 }

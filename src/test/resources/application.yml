@@ -1,0 +1,12 @@
+info:
+  app:
+    name: EventosFull
+    description: Projeto final da disciplina de Arquitetura de Software
+    version: ${version}
+
+spring:
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/Projeto}
+    username: admin
+    password: admin
+    driver-class-name: org.postgresql.Driver

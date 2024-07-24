@@ -3,6 +3,7 @@ package com.schmogel.eventosfull.application.web.inscricao;
 import java.util.List;
 import java.util.UUID;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,6 +28,7 @@ public interface InscricaoApi {
     InscricaoResponse recuperarInscricao(@PathVariable UUID inscricaoId);
 
     @Operation(summary = "Cria uma inscricao", description = "Cria uma inscricao", method = "POST")
+    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     InscricaoResponse criarInscricao(@RequestBody InscricaoRequest inscricaoRequest);
 
@@ -35,9 +37,11 @@ public interface InscricaoApi {
             description = "Deleta uma inscricao",
             method = "DELETE")
     @DeleteMapping("/{inscricaoId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     void deletarInscricao(@PathVariable UUID inscricaoId);
 
     @Operation(summary = "Cria uma presenca", description = "Cria uma presenca", method = "POST")
     @PostMapping("/presenca")
+    @ResponseStatus(HttpStatus.CREATED)
     PresencaResponse criarPresenca(@RequestBody PresencaRequest presencaRequest);
 }
