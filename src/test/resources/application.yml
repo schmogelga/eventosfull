@@ -6,7 +6,7 @@ info:
 
 spring:
   datasource:
-    url: ${SPRING_DATASOURCE_URL_TEST:jdbc:postgresql://localhost:5432/Projeto}
+    url: ${SPRING_DATASOURCE_URL_TEST:jdbc:postgresql://localhost:5432/eventosfull-homolog}
     username: admin
     password: admin
     driver-class-name: org.postgresql.Driver
