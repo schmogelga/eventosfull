@@ -8,6 +8,6 @@ import java.util.UUID;
 public class EventoMock {
 
   public static Evento obterEvento(){
-    return new Evento(UUID.randomUUID(), "", LocalDate.now(), null, false);
+    return new Evento(UUID.randomUUID(), "", LocalDate.now(), null);
   }
 }

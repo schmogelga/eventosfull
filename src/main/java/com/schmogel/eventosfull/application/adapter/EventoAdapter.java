@@ -19,7 +19,6 @@ public class EventoAdapter {
                         Optional.ofNullable(evento.getInscricoes())
                                 .map(inscricoes -> inscricoes.stream().map(InscricaoAdapter::entityToDTO).toList())
                                 .orElse(null))
-                .cancelado(evento.getCancelado())
                 .build();
     }
 }
