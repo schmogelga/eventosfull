@@ -59,14 +59,13 @@ class EventoServiceTest {
   void deveCriarUmNovoEvento() {
     final var eventoMock = EventoMock.obterEvento();
     final var eventoRequest = new EventoRequest(eventoMock.getNome(), eventoMock.getData());
-    final var eventoEsperado = new Evento(UUID.randomUUID(), eventoRequest.nome(), eventoRequest.data(), Collections.emptyList());
 
-    Mockito.when(eventoRepository.save(Mockito.any(Evento.class))).thenReturn(eventoEsperado);
+    Mockito.when(eventoRepository.save(Mockito.any(Evento.class))).thenReturn(eventoMock);
 
     final var result = eventoService.criarEvento(eventoRequest);
 
     Assertions.assertNotNull(result);
-    Assertions.assertEquals(eventoEsperado.getId(), result.getId(), "O ID do evento criado está incorreto");
+    Assertions.assertEquals(eventoMock.getId(), result.getId(), "O ID do evento criado está incorreto");
     Assertions.assertEquals(eventoRequest.nome(), result.getNome(), "O nome do evento criado está incorreto");
     Assertions.assertEquals(eventoRequest.data(), result.getData(), "A data do evento criado está incorreta");
   }

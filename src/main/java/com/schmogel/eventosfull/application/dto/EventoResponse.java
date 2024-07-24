@@ -8,4 +8,4 @@ import lombok.Builder;
 
 @Builder
 public record EventoResponse(
-        UUID id, String nome, List<InscricaoResponse> inscricoes, LocalDate data) {}
+        UUID id, String nome, List<InscricaoResponse> inscricoes, LocalDate data, Boolean cancelado) {}
